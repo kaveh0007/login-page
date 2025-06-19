@@ -16,10 +16,8 @@ function App() {
       return;
     }
 
-    const BASE_URL = import.meta.env.VITE_BACKEND_URL;
-
     try {
-      const res = await fetch(`${BASE_URL}/login`, {
+      const res = await fetch("https://login-page-2asm.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ emailId: email, password }),
@@ -50,10 +48,8 @@ function App() {
       return;
     }
 
-    const BASE_URL = import.meta.env.VITE_BACKEND_URL;
-
     try {
-      const res = await fetch(`${BASE_URL}/signup`, {
+      const res = await fetch("https://login-page-2asm.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ emailId: email, password }),
@@ -182,3 +178,4 @@ function App() {
 }
 
 export default App;
+
