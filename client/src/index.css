@@ -1,0 +1,58 @@
+body{
+    font-family: 'Poppins';
+    font-size: 14px;
+    line-height: 1.7;
+    color: #eb5424;
+    background-color: #fff;
+}
+
+.company-logo{
+    height: 45px;
+    width: 195px;
+}
+
+.input-group{
+    background-color: transparent;
+}
+
+.login-btn{
+    height: 40px;
+    width: 200px;
+    color: #fff;
+    background-color: #eb5424;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    font-weight: bold;
+}
+
+#welcome-header{
+    color: black;
+    text-align: center;
+    margin-top: 125px;
+}
+
+.form-group{
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+label{
+    display: block;
+    color: black;
+}
+
+
+#child-login-box{
+  background-color: #f8f8f8;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+#orange{
+    display:inline;
+    color: #eb5424;
+}
