@@ -17,7 +17,7 @@ function App() {
     }
 
     try {
-      const res = await fetch("https://login-page-2asm.onrender.com/login", {
+      const res = await fetch("https://login-page-2asm.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ emailId: email, password }),
@@ -49,7 +49,7 @@ function App() {
     }
 
     try {
-      const res = await fetch("https://login-page-2asm.onrender.com/signup", {
+      const res = await fetch("https://login-page-2asm.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ emailId: email, password }),
