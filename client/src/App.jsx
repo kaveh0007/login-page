@@ -23,7 +23,7 @@ function App() {
     const password = passwordInput.value;
 
     try {
-      const res = await fetch("https://login-page-2asm.onrender.com", {
+      const res = await fetch(`${BASE_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ emailId, password }),
@@ -54,7 +54,7 @@ function App() {
     }
 
     try {
-      const res = await fetch("https://login-page-2asm.onrender.com", {
+      const res = await fetch(`${BASE_URL}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ emailId: email, password }),
