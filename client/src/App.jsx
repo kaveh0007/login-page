@@ -1,5 +1,5 @@
 import "./App.css";
-import { TextField, Button, colors, Stack } from "@mui/material";
+import { TextField, Button, Stack } from "@mui/material";
 import React, { useState } from "react";
 
 function App() {
@@ -16,32 +16,29 @@ function App() {
       return;
     }
 
-    const emailIdInput = document.getElementById("email-id");
-    const passwordInput = document.getElementById("password-el");
-
-    const emailId = emailIdInput.value;
-    const password = passwordInput.value;
+    const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
     try {
       const res = await fetch(`${BASE_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ emailId, password }),
+        body: JSON.stringify({ emailId: email, password }),
       });
 
       const data = await res.json();
       console.log(data.message);
 
-      emailIdInput.value = "";
-      passwordInput.value = "";
+      setEmail("");
+      setPassword("");
 
       if (res.ok) {
         setLoginMessage("Logged in Successfully");
       } else {
-        setLoginMessage(data.message);
+        setLoginMessage(data.message || "Invalid Credentials");
       }
     } catch (err) {
       console.error("Login failed:", err);
+      setLoginMessage("Server error");
     }
   };
 
@@ -52,6 +49,8 @@ function App() {
       setEmailError("Invalid Email ID");
       return;
     }
+
+    const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
     try {
       const res = await fetch(`${BASE_URL}/signup`, {
@@ -94,7 +93,10 @@ function App() {
         <p
           style={{
             color:
-              loginMessage === "Logged in Successfully" || loginMessage === "Signed up successfully" ? "green" : "red",
+              loginMessage === "Logged in Successfully" ||
+              loginMessage === "Signed up successfully"
+                ? "green"
+                : "red",
             textAlign: "center",
             marginBottom: "16px",
           }}
@@ -104,7 +106,7 @@ function App() {
       )}
 
       <div id="login-box">
-        <form onSubmit={logIn}>
+        <form>
           <div className="form-group">
             <TextField
               id="email-id"
